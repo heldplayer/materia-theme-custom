@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../../../theme";
 @use "../../../theme-color";
 @use "../../../shadow";
@@ -151,6 +152,14 @@ window.background.chromium {
   // For text field
   textview.view {
     background-color: transparent;
+  }
+
+  > textview.view {
+    @if theme.$dark-theme {
+      background-color: color.mix(black, theme-color.$surface-z8, 12%);
+    } @else {
+      background-color: color.mix(black, theme-color.$surface-z8, 5%);
+    }
   }
 
   // For prominent button, starred icon, etc.
