@@ -1149,6 +1149,7 @@ combobox {
   // workaround for menuitem selection
   decoration {
     transition: none;
+    border: 0 none;
   }
 
   // remove hard-coded 2px padding
@@ -1396,8 +1397,8 @@ searchbar > revealer > box {
 
 .titlebar {
   transition: background-color theme.$state-duration theme.$ease-out, color theme.$state-duration theme.$ease-out;
-  border-radius: theme.$corner-radius theme.$corner-radius 0 0;
-  box-shadow: shadow.$z1, inset 0 1px theme-color.highlight(theme-color.$titlebar);
+  // border-radius: theme.$corner-radius theme.$corner-radius 0 0;
+  // box-shadow: shadow.$z1, inset 0 1px theme-color.highlight(theme-color.$titlebar);
   background-color: theme-color.$titlebar;
   color: theme-color.$on-titlebar;
 
@@ -1473,7 +1474,7 @@ searchbar > revealer > box {
   }
 
   .linked:not(.vertical) > entry:not(:only-child) {
-    border-radius: theme.$corner-radius theme.$corner-radius 0 0;
+    // border-radius: theme.$corner-radius theme.$corner-radius 0 0;
   }
 
   @at-root %titlebar-button, & button:not(.suggested-action):not(.destructive-action) {
@@ -1552,16 +1553,16 @@ searchbar > revealer > box {
     // but let's keep it for backwards compatibility.
     transition: background-color .1ms theme.$ripple-duration, color theme.$state-duration theme.$ease-out;
     animation: ripple-on-headerbar theme.$ripple-duration theme.$ease-out;
-    box-shadow: shadow.$z1, inset 0 1px theme-color.highlight(theme-color.$primary);
-    background-color: theme-color.$primary;
-    color: theme-color.$on-primary;
+    // box-shadow: shadow.$z1, inset 0 1px theme-color.highlight(theme-color.$primary);
+    background-color: theme-color.$success;
+    color: theme-color.$on-success;
 
     &:backdrop {
-      color: theme-color.hint(theme-color.$on-primary);
+      color: theme-color.hint(theme-color.$on-success);
     }
 
     .subtitle:link {
-      color: theme-color.$on-primary;
+      color: theme-color.$on-success;
     }
 
     button:not(.suggested-action):not(.destructive-action) {
@@ -1571,10 +1572,10 @@ searchbar > revealer > box {
           currentcolor 0%,
           transparent 0%
         ) 0 0 0 / 0 0 0;
-      color: theme-color.$on-primary;
+      color: theme-color.$on-success;
 
       &:disabled {
-        color: theme-color.disabled(theme-color.$on-primary);
+        color: theme-color.disabled(theme-color.$on-success);
       }
 
       &:checked {
@@ -1584,25 +1585,25 @@ searchbar > revealer > box {
             currentcolor 100%,
             transparent 0%
           ) 0 0 2 / 0 0 2px;
-        color: theme-color.$on-primary;
+        color: theme-color.$on-success;
 
         &:disabled {
-          color: theme-color.disabled(theme-color.$on-primary);
+          color: theme-color.disabled(theme-color.$on-success);
         }
       }
 
       &:backdrop {
-        color: theme-color.hint(theme-color.$on-primary);
+        color: theme-color.hint(theme-color.$on-success);
 
         &:disabled {
-          color: theme-color.disabled-hint(theme-color.$on-primary);
+          color: theme-color.disabled-hint(theme-color.$on-success);
         }
 
         &:checked {
-          color: theme-color.hint(theme-color.$on-primary);
+          color: theme-color.hint(theme-color.$on-success);
 
           &:disabled {
-            color: theme-color.disabled-hint(theme-color.$on-primary);
+            color: theme-color.disabled-hint(theme-color.$on-success);
           }
         }
       }
@@ -1623,8 +1624,8 @@ searchbar > revealer > box {
   }
 
   .selection-mode {
-    box-shadow: inset 0 1px theme-color.highlight(theme-color.$primary); // Avoid double shadows
-    background-color: theme-color.$primary;
+    // box-shadow: inset 0 1px theme-color.highlight(theme-color.$success); // Avoid double shadows
+    background-color: theme-color.$success;
   }
 
   // squared corners when the window is maximized, tiled, or fullscreen
@@ -1636,18 +1637,18 @@ searchbar > revealer > box {
   .maximized &,
   .fullscreen & {
     border-radius: 0;
-    box-shadow: shadow.$z1;
+    // box-shadow: shadow.$z1;
   }
 
   &.default-decoration {
     min-height: theme.$small-size;
     padding: theme.$container-padding;
-    box-shadow: inset 0 1px theme-color.highlight(theme-color.$titlebar);
+    // box-shadow: inset 0 1px theme-color.highlight(theme-color.$titlebar);
 
     .tiled &,
     .maximized &,
     .fullscreen & {
-      box-shadow: none;
+      // box-shadow: none;
     }
 
     button.titlebutton {
@@ -1666,7 +1667,7 @@ searchbar > revealer > box {
   .solid-csd & {
     &:dir(rtl), &:dir(ltr) { // specificity bump
       border-radius: 0;
-      box-shadow: shadow.$z1; // just remove the highlight
+      // box-shadow: shadow.$z1; // just remove the highlight
     }
   }
 }
@@ -3873,6 +3874,7 @@ tooltip {
   // FIXME: we need a border or tooltips vanish on black background.
   decoration {
     background-color: transparent;
+    border: 0 none;
   }
 
   > box {
@@ -4054,6 +4056,7 @@ decoration {
   transition: theme.$transition-shadow;
   border-radius: theme.$corner-radius theme.$corner-radius 0 0;
   box-shadow: shadow.$z16, 0 16px (24px * .6) 2px transparent, 0 6px (30px * .6) 5px transparent;
+  border: theme.$titlebar-border solid theme-color.$titlebar;
 
   // FIXME rationalize shadows
 
@@ -4066,6 +4069,12 @@ decoration {
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
     box-shadow: shadow.$z4, 0 16px (24px * .6) 2px transparent, 0 6px (30px * .6) 5px transparent;
+    border-color: theme-color.$titlebar-backdrop;
+  }
+
+  .maximized &,
+  .fullscreen & {
+    border: 0 none;
   }
 
   .maximized &,
