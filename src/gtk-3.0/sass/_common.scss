@@ -134,6 +134,11 @@ textview {
   }
 }
 
+textview.view selection {
+  background-color: theme-color.$primary;
+  color: theme-color.$on-primary
+}
+
 iconview {
   // @extend .view;
 }
