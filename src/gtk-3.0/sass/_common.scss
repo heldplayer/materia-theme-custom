@@ -1454,13 +1454,16 @@ searchbar > revealer > box {
   }
 
   entry {
-    box-shadow: inset 0 -1px theme-color.stroke(theme-color.$on-titlebar);
-    background-color: theme-color.entry-fill(theme-color.$on-titlebar);
+    box-shadow: none;
+    border-image-source: none;
+    border-radius: theme.$corner-radius;
+    background-color: rgba(theme-color.$on-titlebar, 0.2);
     color: theme-color.$on-titlebar;
 
     &:disabled {
-      box-shadow: inset 0 -1px theme-color.disabled-stroke(theme-color.$on-titlebar);
-      background-color: theme-color.entry-fill(theme-color.$on-titlebar);
+      box-shadow: none;
+      border-image-source: none;
+      background-color: rgba(theme-color.$on-titlebar, 0.2);
       color: theme-color.disabled(theme-color.$on-titlebar);
     }
 
@@ -1534,7 +1537,19 @@ searchbar > revealer > box {
     }
   }
 
+  button.suggested-action {
+    @include drawing.ink-color(theme-color.$titlebar, $button-style: "flat", $on: theme-color.$on-titlebar);
+    color: theme-color.$titlebar;
+  }
+
+  button.destructive-action {
+    @include drawing.ink-color(theme-color.on(theme-color.$error), $button-style: "flat", $on: theme-color.$error);
+    color: theme-color.on(theme-color.$error);
+  }
+
   button.suggested-action, button.destructive-action {
+    box-shadow: none;
+
     &:disabled {
       background-color: theme-color.fill(theme-color.$on-titlebar);
       color: theme-color.disabled(theme-color.$on-titlebar);
