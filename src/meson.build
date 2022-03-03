@@ -25,3 +25,5 @@ subdir('metacity-1')
 subdir('plank')
 subdir('unity')
 subdir('xfwm4')
+
+subdir('icons')

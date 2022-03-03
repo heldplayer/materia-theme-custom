@@ -96,7 +96,7 @@ $on-system: on($system);
 $tooltip: rgba(#616161, .9);
 $on-tooltip: on($tooltip);
 
-$scrim: rgba(black, .6);
+$scrim: rgba(color.mix(#0078D7, black, 30%), .6);
 $on-scrim: on($scrim);
 
 $scrim-alt: rgba(black, .3);
@@ -112,6 +112,9 @@ $on-panel-solid: on($panel-solid);
 $titlebar: #0078D7;
 $titlebar-backdrop: #383838;
 $on-titlebar: on($titlebar);
+
+$titlebar-button-active: white;
+$titlebar-button-close-active: #e81123;
 
 $titlebar-indicator: currentcolor;
 
@@ -139,7 +142,7 @@ $titlebar-indicator: currentcolor;
 
 //  $titlebar: color.mix(white, $surface-z0, 9%);
 //  $titlebar-backdrop: $surface-z1;
-  $on-titlebar: on($titlebar);
+//  $on-titlebar: on($titlebar);
 }
 
 @if theme.$light-topbar {
@@ -151,7 +154,7 @@ $titlebar-indicator: currentcolor;
 
 //  $titlebar: #f0f0f0;
 //  $titlebar-backdrop: #ebebeb;
-  $on-titlebar: on($titlebar);
+//  $on-titlebar: on($titlebar);
 
   $titlebar-indicator: $primary;
 }

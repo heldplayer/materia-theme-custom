@@ -1,0 +1,14 @@
+[Icon Theme]
+Name=Materia
+Comment=Icons for the Materia theme
+Inherits=Yaru,Humanity,hicolor
+
+Directories=scalable/actions
+
+
+[scalable/actions]
+Context=Actions
+Size=16
+MinSize=16
+MaxSize=256
+Type=Scalable

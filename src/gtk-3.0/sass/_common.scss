@@ -1402,7 +1402,7 @@ searchbar > revealer > box {
 
 .titlebar {
   transition: background-color theme.$state-duration theme.$ease-out, color theme.$state-duration theme.$ease-out;
-  // border-radius: theme.$corner-radius theme.$corner-radius 0 0;
+  border-radius: theme.$window-corner-radius theme.$window-corner-radius 0 0;
   // box-shadow: shadow.$z1, inset 0 1px theme-color.highlight(theme-color.$titlebar);
   background-color: theme-color.$titlebar;
   color: theme-color.$on-titlebar;
@@ -1672,15 +1672,15 @@ searchbar > revealer > box {
     }
 
     button.titlebutton {
-      min-height: theme.$small-size;
-      min-width: theme.$small-size;
+      //min-height: theme.$small-size;
+      //min-width: theme.$small-size;
       margin: 0;
       padding: 0;
     }
 
     // workaround for non-animatable buttons
     .background:not(.csd) & button.titlebutton:active {
-      background-size: 1000% 1000%;
+      //background-size: 1000% 1000%;
     }
   }
 
@@ -1985,7 +1985,7 @@ menu,
 
   .csd & {
     border: none; // axes borders in a composited env
-    border-radius: theme.$corner-radius;
+    border-radius: 0;
   }
 
   menuitem {
@@ -3451,9 +3451,11 @@ messagedialog {
   .titlebar {
     min-height: theme.$small-size;
     border-style: none;
-    box-shadow: inset 0 1px theme-color.highlight(theme-color.$surface-z8);
+    // box-shadow: inset 0 1px theme-color.highlight(theme-color.$surface-z8);
     background-color: theme-color.$surface-z8;
     color: theme-color.$on-surface;
+    border-top-left-radius: theme.$window-corner-radius;
+    border-top-right-radius: theme.$window-corner-radius;
 
     &:backdrop {
       background-color: theme-color.$surface-z8;
@@ -3465,8 +3467,8 @@ messagedialog {
     // rounded bottom border styling for csd version
     &.background {
       // bigger radius for better antialiasing
-      border-bottom-left-radius: theme.$corner-radius;
-      border-bottom-right-radius: theme.$corner-radius;
+      border-bottom-left-radius: theme.$window-corner-radius;
+      border-bottom-right-radius: theme.$window-corner-radius;
     }
   }
 
@@ -4074,9 +4076,10 @@ colorchooser .popover.osd {
 
 decoration {
   transition: theme.$transition-shadow;
-  border-radius: theme.$corner-radius theme.$corner-radius 0 0;
+  border-radius: theme.$window-corner-radius theme.$window-corner-radius 0 0;
   box-shadow: shadow.$z16, 0 16px (24px * .6) 2px transparent, 0 6px (30px * .6) 5px transparent;
   border: theme.$titlebar-border solid theme-color.$titlebar;
+  background-color: theme-color.$titlebar;
 
   // FIXME rationalize shadows
 
@@ -4127,7 +4130,7 @@ decoration {
   }
 
   messagedialog.csd & {
-    border-radius: theme.$corner-radius;
+    border-radius: theme.$window-corner-radius;
     // box-shadow: $shadow-z24, 0 24px (38px * .6) 3px transparent, 0 9px (46px * .6) 8px transparent;
 
     &:backdrop {
@@ -4149,9 +4152,85 @@ decoration {
   }
 }
 
-// Window Close button
+// Window buttons
 button.titlebutton {
-  border-radius: theme.$circular-radius;
+  .titlebar & {
+    &:dir(ltr) {
+      margin: 0 -6px 1px 0;
+
+      &.close {
+        margin-right: -(theme.$container-padding);
+      }
+    }
+    &:dir(rtl) {
+      margin: 0 0 1px -6px;
+
+      &.close {
+        margin-left: -(theme.$container-padding);
+      }
+    }
+
+    min-height: theme.$large-size - 1px;
+    min-width: 45px;
+  }
+  .titlebar.default-decoration & {
+    &:dir(ltr) {
+      margin: (- theme.$container-padding) -6px (- theme.$container-padding + 1px) 0;
+
+      &.close {
+        margin-right: -(theme.$container-padding);
+      }
+    }
+    &:dir(rtl) {
+      margin: -(theme.$container-padding) 0 -(theme.$container-padding + 1px) -6px;
+
+      &.close {
+        margin-left: -(theme.$container-padding);
+      }
+    }
+
+    min-height: theme.$small-size + theme.$container-padding * 2 - 1px;
+    min-width: 45px;
+  }
+
+  padding: 0;
+  border-radius: 0;
+
+  &:not(.suggested-action):not(.destructive-action) {
+    &.minimize, &.maximize {
+      &:hover {
+        background-color: rgba(theme-color.$titlebar-button-active, 0.1);
+      }
+
+      &:focus {
+        background-color: rgba(theme-color.$titlebar-button-active, 0.1);
+      }
+
+      &:active {
+        background-color: rgba(theme-color.$titlebar-button-active, 0.25);
+        background-image: none;
+      }
+    }
+
+    &.close {
+      &:hover {
+        background-color: theme-color.$titlebar-button-close-active;
+      }
+
+      &:focus {
+        background-color: theme-color.$titlebar-button-close-active;
+      }
+
+      &:active {
+        background-color: rgba(theme-color.$titlebar-button-close-active, 0.5);
+        background-image: none;
+      }
+
+      // @include drawing.ink-color(theme-color.$error, $button-style: "flat");
+    }
+
+    color: white;
+  }
 
   .selection-mode & {
   }

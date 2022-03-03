@@ -8,6 +8,7 @@ project(
 
 theme_base_name = get_option('theme_name')
 theme_base_dir = join_paths(get_option('datadir'), 'themes', theme_base_name)
+icon_theme_base_dir = join_paths(get_option('datadir'), 'icons', theme_base_name)
 
 # Avoid printing 'Program sh found' multiple times
 # if meson version is >= 0.55.0
