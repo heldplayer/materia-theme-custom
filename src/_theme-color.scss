@@ -96,13 +96,13 @@ $on-system: on($system);
 $tooltip: rgba(#616161, .9);
 $on-tooltip: on($tooltip);
 
-$scrim: rgba(color.mix(#0078D7, black, 30%), .6);
+$scrim: rgba(black, .6);
 $on-scrim: on($scrim);
 
 $scrim-alt: rgba(black, .3);
 $on-scrim-alt: on($scrim-alt);
 
-$panel: rgba(#212121, 0.7);
+$panel: rgba(color.mix(#0078D7, black, 30%), .6);
 $on-panel: on($panel);
 
 // for Unity panel which doesn't allow translucent colors
@@ -146,8 +146,8 @@ $titlebar-indicator: currentcolor;
 }
 
 @if theme.$light-topbar {
-  $panel: $scrim;
-  $on-panel: on($panel);
+  // $panel: $scrim;
+  // $on-panel: on($panel);
 
   $panel-solid: #e0e0e0;
   $on-panel-solid: on($panel-solid);
