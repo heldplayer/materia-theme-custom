@@ -2571,6 +2571,42 @@ switch {
 
   row:selected & {
   }
+
+  .titlebar & {
+    background-color: theme-color.stroke(theme-color.$on-surface);
+
+    &:checked {
+      background-color: theme-color.stroke(theme-color.$on-surface);
+    }
+
+    slider {
+      background-color: #fff;
+
+      &:backdrop {
+        background-color: theme-color.$surface-switch-thumb;
+      }
+    }
+
+    &:hover slider {
+      box-shadow: 0 0 0 10px theme-color.hover-overlay(theme-color.$on-surface), shadow.$z1;
+    }
+
+    &:focus slider {
+      box-shadow: 0 0 0 10px theme-color.focus-overlay(theme-color.$on-surface), shadow.$z1;
+    }
+
+    &:checked slider {
+      background-color: #fff;
+    }
+
+    &:checked:hover slider {
+      box-shadow: 0 0 0 10px theme-color.hover-overlay(theme-color.$on-surface), shadow.$z1;
+    }
+
+    &:checked:focus slider {
+      box-shadow: 0 0 0 10px theme-color.focus-overlay(theme-color.$on-surface), shadow.$z1;
+    }
+  }
 }
 
 /**
@@ -4138,8 +4174,7 @@ decoration {
     }
   }
 
-  .solid-csd & {
-    margin: 0;
+  .solid-csd & {    margin: 0;
     padding: 2px;
     border-radius: 0;
     box-shadow: none;
