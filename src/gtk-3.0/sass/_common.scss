@@ -2574,6 +2574,8 @@ switch {
 
   .titlebar & {
     background-color: theme-color.stroke(theme-color.$on-surface);
+    margin-left: 8px;
+    margin-right: 8px;
 
     &:checked {
       background-color: theme-color.stroke(theme-color.$on-surface);
