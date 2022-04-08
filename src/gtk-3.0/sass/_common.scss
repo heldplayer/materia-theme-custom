@@ -1400,7 +1400,7 @@ searchbar > revealer > box {
  * Header bars
  */
 
-.titlebar {
+headerbar:not(.titlebar), .titlebar {
   transition: background-color theme.$state-duration theme.$ease-out, color theme.$state-duration theme.$ease-out;
   border-radius: theme.$window-corner-radius theme.$window-corner-radius 0 0;
   // box-shadow: shadow.$z1, inset 0 1px theme-color.highlight(theme-color.$titlebar);
@@ -1459,6 +1459,7 @@ searchbar > revealer > box {
     border-radius: theme.$corner-radius;
     background-color: rgba(theme-color.$on-titlebar, 0.2);
     color: theme-color.$on-titlebar;
+    caret-color: theme-color.$on-titlebar;
 
     &:disabled {
       box-shadow: none;
@@ -1478,6 +1479,11 @@ searchbar > revealer > box {
       &:disabled {
         color: theme-color.disabled(theme-color.$on-titlebar);
       }
+    }
+
+    selection {
+      background-color: theme-color.$on-titlebar;
+      color: theme-color.on(theme-color.$on-titlebar);
     }
   }
 
