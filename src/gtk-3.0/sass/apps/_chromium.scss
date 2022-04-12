@@ -1,0 +1,81 @@
+@use "sass:color";
+@use "../../../theme";
+@use "../../../theme-color";
+
+/**
+ * Chromium
+ */
+
+window.background.chromium {
+  background-color: theme-color.$surface-z8;
+
+  // FIXME: There is no way to change the color of the toolbar buttons
+  toolbar button {
+    // color: hint($on-surface);
+  }
+
+  // toolbar's border-bottom refers to button's border
+  // FIXME: Chrome's button border ignores theme's alpha value :(
+  entry, > button {
+    border: 1px solid theme-color.stroke(theme-color.$on-surface);
+  }
+
+  > button {
+    color: theme-color.$primary;
+
+    &:disabled {
+      color: theme-color.disabled-hint(theme-color.$on-surface);
+    }
+  }
+
+  menubar,
+  headerbar {
+    color: theme-color.hint(theme-color.$on-titlebar);
+  }
+
+  // Workaround for non-animatable buttons in headerbar
+  headerbar button:active {
+    background-color: theme-color.pressed-overlay(theme-color.$on-titlebar);
+  }
+
+  // For text field
+  textview.view {
+    background-color: transparent;
+  }
+
+  > textview.view {
+    @if theme.$dark-theme {
+      background-color: color.mix(black, theme-color.$surface-z8, 12%);
+    }
+
+    @else {
+      background-color: color.mix(black, theme-color.$surface-z8, 5%);
+    }
+  }
+
+  // For prominent button, starred icon, etc.
+  treeview.view.cell:selected:focus {
+    background-color: theme-color.$primary;
+    color: theme-color.$on-primary;
+  }
+
+  // For table header
+  treeview.view button {
+    border: 1px solid theme-color.stroke(theme-color.$on-surface);
+    background-color: theme-color.$surface-z1; // FIXME: This should not be necessary
+    // color: hint($on-surface);
+  }
+
+  .titlebar button.titlebutton {
+    min-height: 32px;
+  }
+  &.maximized {
+    .titlebar button.titlebutton {
+      min-height: 26px;
+    }
+  }
+}
+
+tooltip.background.chromium {
+  background-color: rgba(theme-color.$tooltip, 1);
+}

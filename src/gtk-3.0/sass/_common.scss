@@ -571,7 +571,10 @@ button {
   color: theme-color.$on-surface;
   font-weight: 500;
 
-  @extend %ripple;
+  &:not(.titlebutton) {
+    @extend %ripple;
+  }
+
   @include drawing.ink-color(theme-color.$on-surface, $button-style: "raised", $on: theme-color.$surface-z8);
 
   &:disabled {
@@ -4251,7 +4254,6 @@ button.titlebutton {
 
       &:active {
         background-color: rgba(theme-color.$titlebar-button-active, 0.25);
-        background-image: none;
       }
     }
 
@@ -4266,7 +4268,6 @@ button.titlebutton {
 
       &:active {
         background-color: rgba(theme-color.$titlebar-button-close-active, 0.5);
-        background-image: none;
       }
 
       // @include drawing.ink-color(theme-color.$error, $button-style: "flat");

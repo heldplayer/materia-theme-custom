@@ -4,6 +4,7 @@ gtk3_scss_depend_files = files([
   '../_theme.scss',
   '../_theme-color.scss',
   'sass/apps/_budgie.scss',
+  'sass/apps/_chromium.scss',
   'sass/apps/_gnome.scss',
   'sass/apps/_index.scss',
   'sass/apps/_libhandy.scss',
