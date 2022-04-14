@@ -2139,7 +2139,9 @@ popover.background {
   }
 
   button:not(.suggested-action):not(.destructive-action) {
+    // TODO: look into this further
     // @extend %button-flat;
+    // @include drawing.ink-color(theme-color.$on-surface, $button-style: "outlined");
   }
 
   .linked:not(.vertical) > entry:not(:only-child) {

@@ -61,19 +61,21 @@
   margin: theme.$container-padding 0;
   border-radius: theme.$corner-radius;
 
+  background-color: theme-color.fill(theme-color.$on-titlebar);
+
   // reset the margin
   button {
     margin: 0;
   }
 
   &.width-maximized {
-    background-color: theme-color.entry-fill(theme-color.$on-titlebar);
+    // background-color: theme-color.entry-fill(theme-color.$on-titlebar);
   }
 
   // workaround for 3.30.1
   &.background.frame {
     border-style: none;
-    background-color: theme-color.entry-fill(theme-color.$on-titlebar);
+    // background-color: theme-color.entry-fill(theme-color.$on-titlebar);
   }
 
   // for 3.30
