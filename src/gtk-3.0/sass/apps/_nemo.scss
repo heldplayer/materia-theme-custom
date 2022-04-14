@@ -81,3 +81,9 @@
 .nemo-desktop.nemo-canvas-item {
   @extend %iconview-desktop;
 }
+
+.nemo-canvas-item {
+  &:active:not(:focus) {
+    background-color: theme-color.$selected-overlay;
+  }
+}

@@ -23,6 +23,10 @@
 
 .nautilus-canvas-item {
   // border-radius: $corner-radius;
+
+  &:active:not(:focus) {
+    background-color: theme-color.$selected-overlay;
+  }
 }
 
 .nautilus-canvas-item.dim-label,

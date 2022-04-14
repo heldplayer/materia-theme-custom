@@ -451,6 +451,10 @@ na-tray-applet widget box widget {
 // window and desktop mode
 .caja-canvas-item {
   border-radius: theme.$corner-radius;
+
+  &:active:not(:focus) {
+    background-color: theme-color.$selected-overlay;
+  }
 }
 
 // desktop mode

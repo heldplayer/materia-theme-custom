@@ -233,15 +233,15 @@ $selected-overlay: selected-overlay($on-surface);
 }
 
 @function hint($color) {
-  @return if(_has-alpha($color), rgba($color, .6), rgba($color, .7));
+  @return if(_has-alpha($color), rgba($color, .75), rgba($color, .85));
 }
 
 @function disabled($color) {
-  @return if(_has-alpha($color), rgba($color, .38), rgba($color, .5));
+  @return if(_has-alpha($color), rgba($color, .48), rgba($color, .6));
 }
 
 @function disabled-hint($color) {
-  @return if(_has-alpha($color), rgba($color, .26), rgba($color, .3));
+  @return if(_has-alpha($color), rgba($color, .36), rgba($color, .4));
 }
 
 @function stroke($color) {
