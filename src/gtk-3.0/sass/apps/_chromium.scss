@@ -6,6 +6,8 @@
  * Chromium
  */
 
+// Reference: https://source.chromium.org/chromium/chromium/src/+/main:ui/gtk/gtk_color_mixers.cc
+
 window.background.chromium {
   background-color: theme-color.$surface-z8;
 
@@ -22,6 +24,9 @@ window.background.chromium {
 
   > button {
     color: theme-color.$primary;
+
+    $this-border-color: theme-color.stroke(theme-color.$on-surface);
+    border-color: color.mix(rgba($this-border-color, 1), theme-color.$surface-z8, color.alpha($this-border-color) * 100%);
 
     &:disabled {
       color: theme-color.disabled-hint(theme-color.$on-surface);
