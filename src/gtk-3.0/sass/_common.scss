@@ -1674,9 +1674,9 @@ headerbar:not(.titlebar), .titlebar {
     padding: theme.$container-padding;
     // box-shadow: inset 0 1px theme-color.highlight(theme-color.$titlebar);
 
-    .tiled &,
-    .maximized &,
-    .fullscreen & {
+    .tiled > &,
+    .maximized > &,
+    .fullscreen > & {
       // box-shadow: none;
     }
 
@@ -4144,18 +4144,18 @@ decoration {
     border-color: theme-color.$titlebar-backdrop;
   }
 
-  .maximized &,
-  .fullscreen & {
+  .maximized > &,
+  .fullscreen > & {
     border: 0 none;
   }
 
-  .maximized &,
-  .fullscreen &,
-  .tiled &,
-  .tiled-top &,
-  .tiled-right &,
-  .tiled-bottom &,
-  .tiled-left & {
+  .maximized > &,
+  .fullscreen > &,
+  .tiled > &,
+  .tiled-top > &,
+  .tiled-right > &,
+  .tiled-bottom > &,
+  .tiled-left > & {
     border-radius: 0;
   }
 
@@ -4169,7 +4169,7 @@ decoration {
   }
 
   .csd.popup & {
-    border-radius: theme.$corner-radius;
+    // border-radius: theme.$corner-radius;
     box-shadow: shadow.$z4;
   }
 
@@ -4187,7 +4187,8 @@ decoration {
     }
   }
 
-  .solid-csd & {    margin: 0;
+  .solid-csd & {
+    margin: 0;
     padding: 2px;
     border-radius: 0;
     box-shadow: none;
